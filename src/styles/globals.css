@@ -452,20 +452,9 @@
   color: white;
 }
 
-@font-face {
-  font-family: 'Nexa-Light';
-  src: url("../assets/fonts/Nexa-Light.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: 'Nexa-Bold';
-  src: url("../assets/fonts/Nexa-Bold.woff2") format("woff2");
-}
-
 * {
   margin: 0;
   padding: 0;
-  font-family: "Nexa-Light", sans-serif !important;
   font-size: 20px;
 }
 
@@ -473,10 +462,6 @@
   * {
     font-size: 16px;
   }
-}
-
-h1, h2, h3, h4 {
-  font-family: "Nexa-Bold", sans-serif !important;
 }
 
 #root {
