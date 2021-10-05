@@ -69,7 +69,8 @@ const SectionRegularForm = ({
   const onSubmit = (formData) => {
     let updatedSection = {
       ...formData,
-      image: { alt: newImage.alt, image: newImage.image },
+      alt: newImage.alt,
+      image: newImage.image,
       variant: variant,
       id: id,
     }
