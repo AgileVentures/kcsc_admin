@@ -17,26 +17,22 @@ import { PhotoCamera } from '@material-ui/icons'
 import SubmitButton from '../SubmitButton'
 import Cards from '../../modules/Cards'
 
-const CarouselCard = ({
-  card,
-  arrayIndex,
-  create,
-  handleClose,
-}) => {
+const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
   const classes = carouselCard()
   const descriptionMaxLength = 250
-  const { logo, alt, organization, description, links, publish } = card
+  const { logo, alt, organization, description, links, published } = card
   const [preview, setPreview] = useState()
   const [newLogo, setNewLogo] = useState(card.logo)
   const { control, handleSubmit } = useForm()
   const disable = useWatch({
     control,
-    name: `card.publish`,
-    defaultValue: publish ? publish : true,
+    name: `card.published`,
+    defaultValue: published ? published : true,
   })
 
   const onSubmit = (formData) => {
-    const newCard = { ...formData.card, logo: newLogo }
+    const newCard = { ...formData.card, logo: newLogo, section_id: sectionId }
+    debugger
     if (create) {
       Cards.create(newCard)
     } else {
@@ -72,9 +68,9 @@ const CarouselCard = ({
               <FormControlLabel
                 control={
                   <Controller
-                    name={`card.publish`}
+                    name={`card.published`}
                     control={control}
-                    defaultValue={publish ? publish : true}
+                    defaultValue={published ? published : true}
                     render={({ field: { onChange, value } }) => (
                       <Switch
                         data-cy='visible-switch'
@@ -224,9 +220,9 @@ const CarouselCard = ({
           </Grid>
           <Grid item>
             <Controller
-              name={`card.links.web`}
+              name={`card.web`}
               control={control}
-              defaultValue={links.web}
+              defaultValue={links?.web}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='web-input'
@@ -241,9 +237,9 @@ const CarouselCard = ({
           </Grid>
           <Grid item>
             <Controller
-              name={`card.links.facebook`}
+              name={`card.facebook`}
               control={control}
-              defaultValue={links.web}
+              defaultValue={links?.web}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='facebook-input'
@@ -258,9 +254,9 @@ const CarouselCard = ({
           </Grid>
           <Grid item>
             <Controller
-              name={`card.links.twitter`}
+              name={`card.twitter`}
               control={control}
-              defaultValue={links.web}
+              defaultValue={links?.web}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='twitter-input'
