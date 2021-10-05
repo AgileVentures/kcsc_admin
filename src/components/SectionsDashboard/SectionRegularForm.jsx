@@ -74,7 +74,6 @@ const SectionRegularForm = ({
       variant: variant,
       id: id,
     }
-    updatedSection.buttons = { ...buttons }
     Sections.update(updatedSection)
   }
 
@@ -112,6 +111,12 @@ const SectionRegularForm = ({
         spacing={3}>
         <Grid item>{`Button ${buttonIndex + 1}`}</Grid>
         <Grid item>
+          <Controller
+            name={`buttons[${buttonIndex}].id`}
+            defaultValue={button.id}
+            control={control}
+            render={()=>(null)}
+          />
           <Controller
             name={`buttons[${buttonIndex}].text`}
             control={control}
