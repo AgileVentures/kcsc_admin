@@ -16,11 +16,28 @@ import { useWatch } from 'react-hook-form'
 import { PhotoCamera } from '@material-ui/icons'
 import SubmitButton from '../SubmitButton'
 import Cards from '../../modules/Cards'
+import Sections from '../../modules/Sections'
 
-const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
+const CarouselCard = ({
+  card,
+  arrayIndex,
+  create,
+  handleClose,
+  sectionId,
+  setOpen,
+}) => {
   const classes = carouselCard()
   const descriptionMaxLength = 150
-  const { logo, alt, organization, description, web, facebook, twitter, published } = card
+  const {
+    logo,
+    alt,
+    organization,
+    description,
+    web,
+    facebook,
+    twitter,
+    published,
+  } = card
   const [preview, setPreview] = useState()
   const [newLogo, setNewLogo] = useState(card.logo)
   const { control, handleSubmit } = useForm()
@@ -30,10 +47,15 @@ const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
     defaultValue: published ? published : true,
   })
 
-  const onSubmit = (formData) => {
+  const onSubmit = async (formData) => {
     const newCard = { ...formData.card, logo: newLogo, section_id: sectionId }
     if (create) {
-      Cards.create(newCard)
+      const result = await Cards.create(newCard)
+      debugger
+      if (result === 'success') {
+        setOpen(false)
+        Sections.index(1)
+      }
     } else {
       newCard.id = card.id
       Cards.update(newCard)

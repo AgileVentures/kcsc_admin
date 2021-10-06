@@ -32,6 +32,7 @@ const CardCreateModal = ({ open, setOpen, sectionSubmit, sectionId }) => {
           create={true}
           handleClose={handleClose}
           sectionSubmit={sectionSubmit}
+          setOpen={setOpen}
         />
       </Container>
     </Modal>

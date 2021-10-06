@@ -10,8 +10,10 @@ const Sections = {
     try {
       await axios.post('/cards', { card: newCard }, { headers: headers })
       store.dispatch({ type: 'SET_SUCCESS', payload: 'Card has been created' })
+      return 'success'
     } catch (error) {
       errorHandler(error)
+      return 'error'
     }
   },
   async update(updatedCard) {
