@@ -25,7 +25,10 @@ describe('Admin Can Use Sections Dashboard', () => {
         cy.intercept('PUT', '**/sections/**', {
           statusCode: 200,
         })
-        cy.intercept('POST', '**/cards/**', {
+        cy.intercept('POST', '**/cards**', {
+          statusCode: 200,
+        })
+        cy.intercept('PUT', '**/cards**', {
           statusCode: 200,
         })
         TestHelpers.sizeParameters(size)
@@ -158,10 +161,10 @@ describe('Admin Can Use Sections Dashboard', () => {
                     .should('have.value', 'https://www.kcsc.org.uk/')
                   cy.get('[data-cy=facebook-input]')
                     .find('input')
-                    .should('have.value', 'https://www.kcsc.org.uk/')
+                    .should('have.value', 'https://www.facebook.com/smartchelsea')
                   cy.get('[data-cy=twitter-input]')
                     .find('input')
-                    .should('have.value', 'https://www.kcsc.org.uk/')
+                    .should('have.value', 'https://twitter.com/smartlondon')
                   cy.get('[data-cy=submit-button]').click()
                 })
             })
