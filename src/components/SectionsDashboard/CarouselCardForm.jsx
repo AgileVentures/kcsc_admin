@@ -51,7 +51,6 @@ const CarouselCard = ({
     const newCard = { ...formData.card, logo: newLogo, section_id: sectionId }
     if (create) {
       const result = await Cards.create(newCard)
-      debugger
       if (result === 'success') {
         setOpen(false)
         Sections.index(1)
