@@ -19,7 +19,7 @@ import Cards from '../../modules/Cards'
 
 const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
   const classes = carouselCard()
-  const descriptionMaxLength = 250
+  const descriptionMaxLength = 150
   const { logo, alt, organization, description, links, published } = card
   const [preview, setPreview] = useState()
   const [newLogo, setNewLogo] = useState(card.logo)
@@ -32,10 +32,10 @@ const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
 
   const onSubmit = (formData) => {
     const newCard = { ...formData.card, logo: newLogo, section_id: sectionId }
-    debugger
     if (create) {
       Cards.create(newCard)
     } else {
+      newCard.id = card.id
       Cards.update(newCard)
     }
   }
