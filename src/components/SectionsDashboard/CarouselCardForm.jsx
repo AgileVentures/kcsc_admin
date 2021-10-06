@@ -19,8 +19,8 @@ import Cards from '../../modules/Cards'
 
 const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
   const classes = carouselCard()
-  const descriptionMaxLength = 250
-  const { logo, alt, organization, description, links, published } = card
+  const descriptionMaxLength = 150
+  const { logo, alt, organization, description, web, facebook, twitter, published } = card
   const [preview, setPreview] = useState()
   const [newLogo, setNewLogo] = useState(card.logo)
   const { control, handleSubmit } = useForm()
@@ -32,10 +32,10 @@ const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
 
   const onSubmit = (formData) => {
     const newCard = { ...formData.card, logo: newLogo, section_id: sectionId }
-    debugger
     if (create) {
       Cards.create(newCard)
     } else {
+      newCard.id = card.id
       Cards.update(newCard)
     }
   }
@@ -222,7 +222,7 @@ const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
             <Controller
               name={`card.web`}
               control={control}
-              defaultValue={links?.web}
+              defaultValue={web}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='web-input'
@@ -239,7 +239,7 @@ const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
             <Controller
               name={`card.facebook`}
               control={control}
-              defaultValue={links?.web}
+              defaultValue={facebook}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='facebook-input'
@@ -256,7 +256,7 @@ const CarouselCard = ({ card, arrayIndex, create, handleClose, sectionId }) => {
             <Controller
               name={`card.twitter`}
               control={control}
-              defaultValue={links?.web}
+              defaultValue={twitter}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='twitter-input'
