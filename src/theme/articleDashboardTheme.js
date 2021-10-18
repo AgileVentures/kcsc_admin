@@ -10,7 +10,7 @@ const articleDashboard = makeStyles((theme) => ({
     },
   },
   actionCell: {
-    minWidth: '100px',
+    width: '150px',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',

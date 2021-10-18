@@ -20,7 +20,7 @@ const DeleteTestimonialModal = ({ testimonial }) => {
   return (
     <>
       <Button
-        data-cy='delete-testimonial'
+        data-cy='delete-testimonial-btn'
         variant='contained'
         color='primary'
         onClick={() => setOpen(true)}>
@@ -37,7 +37,7 @@ const DeleteTestimonialModal = ({ testimonial }) => {
                 Cancel
               </Button>
               <Button
-                data-cy='delete-testimonial-btn'
+                data-cy='confirm-delete-btn'
                 color='primary'
                 variant='contained'
                 onClick={() => handleDelete()}>

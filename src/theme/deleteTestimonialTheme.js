@@ -8,16 +8,19 @@ const deleteTestimonialTheme = makeStyles((theme) => ({
       left: '50%',
       transform: 'translate(-50%, -50%)',
       backgroundColor: '#fff',
-      maxWidth: '600px',
       padding: '30px',
+      width: '100%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '600px',
     },
   },
   buttonGroup: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '2rem'
-  }
+    marginTop: '2rem',
+  },
 }))
 
 export default deleteTestimonialTheme
