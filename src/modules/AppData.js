@@ -37,7 +37,7 @@ const AppData = {
   async delete(testimonial) {
     try {
       const headers = getHeaders()
-      let params = { key: 'testimonials', value: testimonial }
+      let params = { id: testimonial.id }
       await axios.delete('/app_data', { data: params }, { headers: headers })
 
       AppData.index()
