@@ -34,7 +34,9 @@ const AppData = {
       errorHandler(error)
     }
   },
+  async delete(testimonial) {
 
+  },
   toNavigationObject(formData) {
     const main_tabs = formData.main_tabs.map((tab) => {
       let secondary_tabs = []

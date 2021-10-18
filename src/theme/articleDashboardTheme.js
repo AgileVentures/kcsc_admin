@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core" 
+import { makeStyles } from '@material-ui/core'
 
 const articleDashboard = makeStyles((theme) => ({
   tableContainer: {
@@ -9,6 +9,7 @@ const articleDashboard = makeStyles((theme) => ({
       width: '100%',
     },
   },
+  actionCell: { minWidth: '100px', display: 'flex', flexDirection: 'row', alignItems: 'center' },
   dateCell: { minWidth: '100px' },
   titleCell: { minWidth: '400px' },
   switchLabel: { fontSize: '0.8rem' },

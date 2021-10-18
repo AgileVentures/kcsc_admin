@@ -18,6 +18,7 @@ import articleDashboard from '../theme/articleDashboardTheme'
 import useCommonStyles from '../theme/useCommonStyles'
 import { Link } from 'react-router-dom'
 import AddIcon from '@material-ui/icons/Add'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -75,8 +76,15 @@ const TestimonialsDashboard = () => {
           <StyledTableCell data-cy='date' className={classes.dateCell}>
             {link}
           </StyledTableCell>
-          <StyledTableCell data-cy='action' className={classes.dateCell}>
+          <StyledTableCell data-cy='action' className={classes.actionCell}>
             <TestimonialEditModal testimonial={testimonial} />
+            <Button
+              data-cy='delete-testimonial'
+              variant='contained'
+              color='primary'
+              onClick={() => AppData.delete(testimonial)}>
+              <DeleteIcon />
+            </Button>
           </StyledTableCell>
         </StyledTableRow>
       )
