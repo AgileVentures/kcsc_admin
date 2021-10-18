@@ -10,11 +10,17 @@ const articleDashboard = makeStyles((theme) => ({
     },
   },
   actionCell: {
-    width: '150px',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    [theme.breakpoints.up('xs')]: {
+      width: '150px',
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: 'auto',
+      minWidth: '150px',
+    },
   },
   dateCell: { minWidth: '100px' },
   titleCell: { minWidth: '500px' },
