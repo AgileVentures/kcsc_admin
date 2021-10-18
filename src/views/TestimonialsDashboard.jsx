@@ -13,12 +13,12 @@ import {
   Button,
 } from '@material-ui/core'
 import AppData from '../modules/AppData'
-import TestimonialEditModal from '../components/TestimonialsDashboard/TestimonialEditModal.jsx'
+import EditTestimonialModal from '../components/TestimonialsDashboard/EditTestimonialModal.jsx'
+import DeleteTestimonialModal from '../components/TestimonialsDashboard/DeleteTestimonialModal.jsx'
 import articleDashboard from '../theme/articleDashboardTheme'
 import useCommonStyles from '../theme/useCommonStyles'
 import { Link } from 'react-router-dom'
 import AddIcon from '@material-ui/icons/Add'
-import DeleteIcon from '@material-ui/icons/Delete'
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -77,14 +77,8 @@ const TestimonialsDashboard = () => {
             {link}
           </StyledTableCell>
           <StyledTableCell data-cy='action' className={classes.actionCell}>
-            <TestimonialEditModal testimonial={testimonial} />
-            <Button
-              data-cy='delete-testimonial'
-              variant='contained'
-              color='primary'
-              onClick={() => AppData.delete(testimonial)}>
-              <DeleteIcon />
-            </Button>
+            <EditTestimonialModal testimonial={testimonial} />
+            <DeleteTestimonialModal testimonial={testimonial} />
           </StyledTableCell>
         </StyledTableRow>
       )

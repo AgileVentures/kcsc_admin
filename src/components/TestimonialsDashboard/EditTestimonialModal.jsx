@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const TestimonialsForm = ({ testimonial }) => {
+const EditTestimonialModal = ({ testimonial }) => {
   const { id, name, text, photo, alt, link } = testimonial
   const [open, setOpen] = useState(false)
   const [preview, setPreview] = useState()
@@ -246,4 +246,4 @@ const TestimonialsForm = ({ testimonial }) => {
   )
 }
 
-export default TestimonialsForm
+export default EditTestimonialModal
