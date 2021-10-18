@@ -13,7 +13,8 @@ import {
   Button,
 } from '@material-ui/core'
 import AppData from '../modules/AppData'
-import TestimonialEditModal from '../components/TestimonialsDashboard/TestimonialEditModal.jsx'
+import EditTestimonialModal from '../components/TestimonialsDashboard/EditTestimonialModal.jsx'
+import DeleteTestimonialModal from '../components/TestimonialsDashboard/DeleteTestimonialModal.jsx'
 import articleDashboard from '../theme/articleDashboardTheme'
 import useCommonStyles from '../theme/useCommonStyles'
 import { Link } from 'react-router-dom'
@@ -56,7 +57,7 @@ const TestimonialsDashboard = () => {
       <StyledTableCell align='left'>id</StyledTableCell>
       <StyledTableCell align='left'>Name</StyledTableCell>
       <StyledTableCell align='left'>Link</StyledTableCell>
-      <StyledTableCell align='left'>Action</StyledTableCell>
+      <StyledTableCell align='left' className={classes.actionCell}>Action</StyledTableCell>
     </StyledTableRow>
   )
 
@@ -72,11 +73,12 @@ const TestimonialsDashboard = () => {
           <StyledTableCell data-cy='title' className={classes.titleCell}>
             {name}
           </StyledTableCell>
-          <StyledTableCell data-cy='date' className={classes.dateCell}>
+          <StyledTableCell data-cy='date' className={classes.linkCell}>
             {link}
           </StyledTableCell>
-          <StyledTableCell data-cy='action' className={classes.dateCell}>
-            <TestimonialEditModal testimonial={testimonial} />
+          <StyledTableCell data-cy='action' className={classes.actionCell}>
+            <EditTestimonialModal testimonial={testimonial} />
+            <DeleteTestimonialModal testimonial={testimonial} />
           </StyledTableCell>
         </StyledTableRow>
       )
@@ -103,7 +105,7 @@ const TestimonialsDashboard = () => {
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell className={classes.actionCell}>
                 <Button
                   data-cy='create-testimonial'
                   variant='contained'

@@ -34,7 +34,21 @@ const AppData = {
       errorHandler(error)
     }
   },
+  async delete(testimonial) {
+    try {
+      const headers = getHeaders()
+      let params = { id: testimonial.id }
+      await axios.delete('/app_data', { data: params }, { headers: headers })
 
+      AppData.index()
+      store.dispatch({
+        type: 'SET_SUCCESS',
+        payload: 'Info has been updated',
+      })
+    } catch (error) {
+      errorHandler(error)
+    }
+  },
   toNavigationObject(formData) {
     const main_tabs = formData.main_tabs.map((tab) => {
       let secondary_tabs = []
@@ -44,9 +58,10 @@ const AppData = {
             label: secTab.label,
             // should check for .ref attr when form is expanded to include it
             // current condition assumes all secTabs in services are .ref tabs
-            link: (tab.label === 'services')
-              ? `/${_.snakeCase(tab.label)}`
-              : `/${_.snakeCase(tab.label)}/${_.snakeCase(secTab.label)}`,
+            link:
+              tab.label === 'services'
+                ? `/${_.snakeCase(tab.label)}`
+                : `/${_.snakeCase(tab.label)}/${_.snakeCase(secTab.label)}`,
             ref: secTab.ref ? _.kebabCase(secTab.ref) : null,
             visible: null,
           }

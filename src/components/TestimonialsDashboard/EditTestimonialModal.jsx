@@ -13,6 +13,7 @@ import AppData from '../../modules/AppData'
 import { useForm, Controller } from 'react-hook-form'
 import SubmitButton from '../SubmitButton'
 import { PhotoCamera } from '@material-ui/icons'
+import EditIcon from '@material-ui/icons/Edit'
 
 const useStyles = makeStyles((theme) => ({
   testimonialContainer: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const TestimonialsForm = ({ testimonial }) => {
+const EditTestimonialModal = ({ testimonial }) => {
   const { id, name, text, photo, alt, link } = testimonial
   const [open, setOpen] = useState(false)
   const [preview, setPreview] = useState()
@@ -79,7 +80,7 @@ const TestimonialsForm = ({ testimonial }) => {
         variant='contained'
         color='primary'
         onClick={() => setOpen(true)}>
-        Edit
+        <EditIcon />
       </Button>
       {open && (
         <Modal open={open} style={{ overflow: 'scroll' }}>
@@ -245,4 +246,4 @@ const TestimonialsForm = ({ testimonial }) => {
   )
 }
 
-export default TestimonialsForm
+export default EditTestimonialModal
