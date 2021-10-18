@@ -29,11 +29,11 @@ const DeleteTestimonialModal = ({ testimonial }) => {
       {open && (
         <Modal open={open} onClose={() => setOpen(false)}>
           <Paper className={classes.modal}>
-            <Typography component='h3' variant='h5'>
+            <Typography data-cy='modal-message' component='h3' variant='h5'>
               Are you sure you want to delete this testimonial?
             </Typography>
             <Box className={classes.buttonGroup}>
-              <Button color='primary' onClick={() => setOpen(false)}>
+              <Button data-cy='cancel-btn' color='primary' onClick={() => setOpen(false)}>
                 Cancel
               </Button>
               <Button

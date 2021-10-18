@@ -23,8 +23,24 @@ describe('Admin Can Edit Testimonials', () => {
           })
         })
 
+        it('is expected to open confirm delete testimonial model', () => {
+          cy.get('[data-cy=testimonials-table]').within(() => {
+            cy.get('[data-cy=testimonial]')
+              .first()
+              .within(() => {
+                cy.get('[data-cy=delete-testimonial-btn]').click()
+              })
+          })
+          cy.get('[data-cy=confirm-delete-btn]').should('be.visible')
+          cy.get('[data-cy=cancel-btn]').should('be.visible')
+          cy.get('[data-cy=modal-message]').should(
+            'contain',
+            'Are you sure you want to delete this testimonial?'
+          )
+        })
+
         it('is expected to show success message on submit', () => {
-          cy.get('[data-cy=testimonials-table]').within(() => {  
+          cy.get('[data-cy=testimonials-table]').within(() => {
             cy.get('[data-cy=testimonial]')
               .first()
               .within(() => {
