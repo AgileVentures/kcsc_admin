@@ -57,7 +57,7 @@ const TestimonialsDashboard = () => {
       <StyledTableCell align='left'>id</StyledTableCell>
       <StyledTableCell align='left'>Name</StyledTableCell>
       <StyledTableCell align='left'>Link</StyledTableCell>
-      <StyledTableCell align='left'>Action</StyledTableCell>
+      <StyledTableCell align='left' className={classes.actionCell}>Action</StyledTableCell>
     </StyledTableRow>
   )
 
@@ -73,7 +73,7 @@ const TestimonialsDashboard = () => {
           <StyledTableCell data-cy='title' className={classes.titleCell}>
             {name}
           </StyledTableCell>
-          <StyledTableCell data-cy='date' className={classes.dateCell}>
+          <StyledTableCell data-cy='date' className={classes.linkCell}>
             {link}
           </StyledTableCell>
           <StyledTableCell data-cy='action' className={classes.actionCell}>
@@ -105,7 +105,7 @@ const TestimonialsDashboard = () => {
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
-              <StyledTableCell>
+              <StyledTableCell className={classes.actionCell}>
                 <Button
                   data-cy='create-testimonial'
                   variant='contained'

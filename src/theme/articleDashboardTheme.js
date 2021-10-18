@@ -9,9 +9,16 @@ const articleDashboard = makeStyles((theme) => ({
       width: '100%',
     },
   },
-  actionCell: { minWidth: '100px', display: 'flex', flexDirection: 'row', alignItems: 'center' },
+  actionCell: {
+    minWidth: '100px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   dateCell: { minWidth: '100px' },
-  titleCell: { minWidth: '400px' },
+  titleCell: { minWidth: '500px' },
+  linkCell: { minWidth: '300px' },
   switchLabel: { fontSize: '0.8rem' },
 }))
 
