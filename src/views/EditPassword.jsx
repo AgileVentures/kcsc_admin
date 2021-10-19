@@ -14,6 +14,7 @@ const EditPassword = () => {
     event.preventDefault()
     const newPassword = event.target.newPassword.value
     const confirmPassword = event.target.confirmPassword.value
+ 
     const success = await Authentication.updatePassword(
       newPassword,
       confirmPassword,
