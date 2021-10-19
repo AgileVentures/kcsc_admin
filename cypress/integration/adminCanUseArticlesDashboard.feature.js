@@ -6,17 +6,8 @@ describe('Admin Can Use Articles Dashboard', () => {
   sizes.forEach((size) => {
     describe(`admin can navigate to articles dashboard on ${size}`, () => {
       beforeEach(() => {
-        cy.intercept('GET', '**/articles', {
-          fixture: 'all_articles.json',
-        })
-        cy.intercept('GET', '**/case_studies', {
-          fixture: 'all_case_studies.json',
-        })
         cy.intercept('GET', '**/articles/1', {
           fixture: 'single_article.json',
-        })
-        cy.intercept('GET', '**/app_data', {
-          fixture: 'app_data.json',
         })
         TestHelpers.sizeParameters(size)
         cy.visit('/')

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -19,6 +20,18 @@ import 'cypress-file-upload'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+beforeEach(() => {
+  cy.intercept('GET', '**/app_data', {
+    fixture: 'app_data.json',
+  })
+  cy.intercept('GET', '**/articles', {
+    fixture: 'all_articles.json',
+  })
+  cy.intercept('GET', '**/case_studies', {
+    fixture: 'all_case_studies.json',
+  })
+})
 
 const sizes = ['iphone-x', ['iphone-x', 'landscape'], 'ipad-2', 'macbook-16']
 

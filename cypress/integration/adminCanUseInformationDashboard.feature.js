@@ -9,10 +9,6 @@ describe('Admin Can Use information Dashboard', () => {
         cy.intercept('GET', '**/information', {
           fixture: 'information_items.json',
         })
-        cy.intercept('GET', '**/app_data', {
-          fixture: 'app_data.json',
-        })
-
         TestHelpers.sizeParameters(size)
         cy.visit('/')
         TestHelpers.authenticate()

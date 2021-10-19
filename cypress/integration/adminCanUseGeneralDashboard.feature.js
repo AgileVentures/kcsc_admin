@@ -7,9 +7,6 @@ describe('Admin Can Use General Dashboard', () => {
     describe('admin can navigate to articles dashboard', () => {
       beforeEach(() => {
         TestHelpers.sizeParameters(size)
-        cy.intercept('GET', '**/app_data', {
-          fixture: 'app_data.json',
-        })
         cy.intercept('PUT', '**/app_data**', {
           statusCode: 200,
         })

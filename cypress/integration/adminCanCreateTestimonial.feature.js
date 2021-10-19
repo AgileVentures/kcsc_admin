@@ -9,9 +9,6 @@ describe('Admin Can create Testimonials', () => {
         cy.intercept('PUT', '**/app_data**', {
           statusCode: 200,
         })
-        cy.intercept('GET', '**/app_data', {
-          fixture: 'app_data.json',
-        })
         TestHelpers.sizeParameters(size)
         cy.visit('/')
         TestHelpers.authenticate()
