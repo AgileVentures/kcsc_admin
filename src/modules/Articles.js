@@ -19,8 +19,10 @@ const Articles = {
   },
 
   async create(article) {
-    const { title, body, image, alt } = article
-    let params = { article: { title: title, body: body, image: image, alt: alt } }
+    debugger
+    let params = {
+      article: article,
+    }
     try {
       await axios.post('/articles', params, { headers: headers })
       store.dispatch({
