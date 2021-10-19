@@ -58,6 +58,7 @@ const ArticlesDashboard = () => {
     <>
       <StyledTableRow color='secondary'>
         <StyledTableCell align='center'>Status</StyledTableCell>
+        <StyledTableCell align='center'>Case Study</StyledTableCell>
         <StyledTableCell align='left'>Title</StyledTableCell>
         <StyledTableCell align='left'>Author</StyledTableCell>
         <StyledTableCell align='left'>Date</StyledTableCell>
@@ -69,7 +70,7 @@ const ArticlesDashboard = () => {
   const tableRows =
     articles &&
     articles.map((article) => {
-      const { id, title, author, date, published } = article
+      const { id, title, author, date, published, case_study } = article
 
       return (
         <StyledTableRow data-cy='article' key={`article-${id}`}>
@@ -89,6 +90,9 @@ const ArticlesDashboard = () => {
               }
               labelPlacement='bottom'
             />
+          </StyledTableCell>
+          <StyledTableCell data-cy='case-study' className={classes.dateCell}>
+            {case_study ? 'Case Study' : 'News'}
           </StyledTableCell>
           <StyledTableCell data-cy='title' className={classes.titleCell}>
             {title}
@@ -120,6 +124,7 @@ const ArticlesDashboard = () => {
           <TableHead>{tableHeader}</TableHead>
           <TableBody>
             <StyledTableRow>
+              <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
