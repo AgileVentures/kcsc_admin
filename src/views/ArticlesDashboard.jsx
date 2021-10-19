@@ -67,6 +67,19 @@ const ArticlesDashboard = () => {
     </>
   )
 
+  const TableDivider = ({ children }) => (
+    <TableRow>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell align='center'>
+        <Typography variant='h5'>{children}</Typography>
+      </StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+    </TableRow>
+  )
+
   const buildTableRowsFrom = (array) => {
     return array.map((item) => {
       const { id, title, author, date, published, case_study } = item
@@ -143,7 +156,9 @@ const ArticlesDashboard = () => {
                 </Button>
               </StyledTableCell>
             </StyledTableRow>
+            <TableDivider>Case Studies</TableDivider>
             {caseStudies ? caseStudiesTableRows : noArticlesMessage}
+            <TableDivider>News Articles</TableDivider>
             {articles ? articlesTableRows : noArticlesMessage}
           </TableBody>
         </Table>
