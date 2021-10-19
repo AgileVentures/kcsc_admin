@@ -24,7 +24,7 @@ describe('Admin is able to create an article ', () => {
         it('is expected to show article creation page', () => {
           const filepath = '../fixtures/imageFixture.png'
           cy.get('[data-cy=create-btn]').click()
-          cy.get('[data-cy=case-study-checkbox]').check()
+          cy.get('[data-cy=case-study-checkbox]').click()
           cy.get('[data-cy=article-title]').type('Social Care in London')
           cy.get('[data-cy=article-body]').type(
             'Some longer text to see that the body of the article creation is working correctly'
