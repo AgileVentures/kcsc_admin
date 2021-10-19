@@ -5,6 +5,7 @@
       "title": "Most recent article",
       "author": {"name": "Liu Kang"},
       "published": true,
+      "case_study": true,
       "teaser": "As self-care has become more mainstream, the definitions have started to become more applicable to the general public and tend to focus on tuning in to one’s needs and meeting those needs. “Self-care is anything that you do for yourself that ...",
       "date": "2021-05-12",      
       "image": {
@@ -17,6 +18,7 @@
       "title": "Really long article title that should be broken up or it will look bad Really long article title that should be broken up or it will look bad",
       "author": {"name": "Sonya Blade"},
       "published": true,
+      "case_study": false,
       "teaser": "Several organizations and researchers take a health-oriented approach when defining self-care. The World Health Organization defines self-care as: “the ability of individuals, families, and communities to promote health ...",
       "date": "2021-05-11",
       "image": {
@@ -29,6 +31,7 @@
       "title": "Article 3",
       "author": {"name": "Liu Kang"},
       "published": false,
+      "case_study": false,
       "teaser": "According to this definition, self-care includes everything related to staying physically healthy — including hygiene, nutrition, and ...",
       "date": "2021-05-10",
       "image": {
@@ -41,6 +44,7 @@
       "title": "Article 4",
       "author": {"name": "Liu Kang"},
       "published": true,
+      "case_study": false,
       "teaser": "Paula Gill Lopez, PhD, an associate professor and chair of the department of psychological and educational consultation at Fairfield University in Fairfield, Connecticut, says the need ...",
       "date": "2021-05-09",
       "image": {
@@ -53,6 +57,7 @@
       "title": "Article 5",
       "author": {"name": "Sonya Blade"},
       "published": false,
+      "case_study": false,
       "teaser": "Let’s clear up one common misconception from the get-go: Self-care is not synonymous with self-indulgence or being selfish. Self-care means ...",
       "date": "2021-05-08",
       "image": {
@@ -65,6 +70,7 @@
       "title": "Article 6",
       "author": {"name": "Sonya Blade"},
       "published": false,
+      "case_study": true,
       "teaser": "Tens of millions of Americans have lost crucial jobless benefits, and lawmakers still can’t seem to agree on a relief measure. Israel’s troubled school reopenings could be a lesson for the U.S.",
       "date": "2021-05-07",
       "image": {
