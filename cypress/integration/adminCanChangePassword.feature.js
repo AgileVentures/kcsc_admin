@@ -7,7 +7,6 @@ describe('Admin is able to change the password', () => {
     describe(`on ${size}`, () => {
       beforeEach(() => {
         TestHelpers.sizeParameters(size)
-
         cy.visit('/')
       })
 
@@ -70,8 +69,9 @@ describe('Admin is able to change the password', () => {
 
       describe('unsuccessfully with wrong headers', () => {
         beforeEach(() => {
-          cy.intercept('POST', '**/auth/password', {
-            statusCode: 401,
+          cy.intercept('PUT', '**/auth/password', {
+            statusCode: 404,
+            fixture: 'unauthorized.json'
           })
         })
 
