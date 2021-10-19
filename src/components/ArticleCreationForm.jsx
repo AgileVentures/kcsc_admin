@@ -1,5 +1,11 @@
-import React from 'react'
-import { TextField, Box, Button } from '@material-ui/core'
+import React, { useState } from 'react'
+import {
+  TextField,
+  Box,
+  Button,
+  FormControlLabel,
+  Checkbox,
+} from '@material-ui/core'
 import ImageUploader from '../components/ImageUploader'
 import articleCreationTheme from '../theme/articleCreationTheme'
 
@@ -10,6 +16,7 @@ const ArticleCreationForm = ({
   setArticle,
 }) => {
   const classes = articleCreationTheme()
+  const [checked, setChecked] = useState(false)
 
   return (
     <form
@@ -17,6 +24,19 @@ const ArticleCreationForm = ({
       className={classes.formGroup}
       data-cy='new-article-modal'
       onSubmit={handleSubmit}>
+      <FormControlLabel
+        className={classes.checkbox}
+        control={
+          <Checkbox
+            data-cy='case-study-checkbox'
+            name='case-study'
+            color='primary'
+            checked={checked}
+            onChange={() => setChecked(!checked)}
+          />
+        }
+        label='Case Study'
+      />
       <TextField
         className={classes.form}
         data-cy='article-title'

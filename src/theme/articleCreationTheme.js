@@ -6,10 +6,14 @@ const articleCreationTheme = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     paddingTop: '100px',
+    width: '70%',
+    margin: 'auto'
   },
   form: {
-    width: '70%',
     margin: '0.5rem',
+  },
+  checkbox: {
+    marginRight: 'auto'
   },
   btnBox: {
     [theme.breakpoints.up('xs')]: {
