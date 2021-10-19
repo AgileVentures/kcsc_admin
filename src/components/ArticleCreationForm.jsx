@@ -16,7 +16,6 @@ const ArticleCreationForm = ({
   setArticle,
 }) => {
   const classes = articleCreationTheme()
-  const [checked, setChecked] = useState(false)
 
   return (
     <form
@@ -29,10 +28,9 @@ const ArticleCreationForm = ({
         control={
           <Checkbox
             data-cy='case-study-checkbox'
-            name='case-study'
+            name='case_study'
             color='primary'
-            checked={checked}
-            onChange={() => setChecked(!checked)}
+            onChange={handleChange}
           />
         }
         label='Case Study'
