@@ -8,10 +8,15 @@ const headers = getHeaders()
 const Articles = {
   async index() {
     try {
-      const response = await axios.get('/articles', { headers: headers })
+      const articles_response = await axios.get('/articles', { headers: headers })
+      const case_studies_response = await axios.get('/case_studies', { headers: headers })
       store.dispatch({
         type: 'ARTICLES_INDEX',
-        payload: response.data.articles,
+        payload: articles_response.data.articles,
+      })
+      store.dispatch({
+        type: 'CASE_STUDIES_INDEX',
+        payload: case_studies_response.data.case_studies,
       })
     } catch (error) {
       errorHandler(error)

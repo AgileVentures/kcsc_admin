@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import StatCard from '../components/analytics/StatCard'
 import VisibilityIcon from '@material-ui/icons/Visibility'
@@ -7,10 +7,6 @@ import PhoneCallbackIcon from '@material-ui/icons/PhoneCallback'
 
 const AnalyticsDashboard = () => {
   const { analytics } = useSelector((state) => state)
-
-  useEffect(() => {
-    
-  }, [])
 
   return (
     <div className='analytics-container'>

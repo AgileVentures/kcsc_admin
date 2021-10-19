@@ -9,6 +9,9 @@ describe('Admin Can Use Articles Dashboard', () => {
         cy.intercept('GET', '**/articles', {
           fixture: 'all_articles.json',
         })
+        cy.intercept('GET', '**/case_studies', {
+          fixture: 'all_case_studies.json',
+        })
         cy.intercept('GET', '**/articles/1', {
           fixture: 'single_article.json',
         })

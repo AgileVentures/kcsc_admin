@@ -21,5 +21,5 @@ import 'cypress-file-upload'
 // require('./commands')
 
 const sizes = ['iphone-x', ['iphone-x', 'landscape'], 'ipad-2', 'macbook-16']
-
+  
 export default sizes
