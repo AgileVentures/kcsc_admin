@@ -19,7 +19,6 @@ const Articles = {
   },
 
   async create(article) {
-    debugger
     let params = {
       article: article,
     }
