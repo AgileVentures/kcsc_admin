@@ -1,5 +1,11 @@
 import React from 'react'
-import { TextField, Box, Button } from '@material-ui/core'
+import {
+  TextField,
+  Box,
+  Button,
+  FormControlLabel,
+  Checkbox,
+} from '@material-ui/core'
 import ImageUploader from '../components/ImageUploader'
 import articleCreationTheme from '../theme/articleCreationTheme'
 
@@ -17,6 +23,18 @@ const ArticleCreationForm = ({
       className={classes.formGroup}
       data-cy='new-article-modal'
       onSubmit={handleSubmit}>
+      <FormControlLabel
+        className={classes.checkbox}
+        control={
+          <Checkbox
+            data-cy='case-study-checkbox'
+            name='case_study'
+            color='primary'
+            onChange={handleChange}
+          />
+        }
+        label='Case Study'
+      />
       <TextField
         className={classes.form}
         data-cy='article-title'

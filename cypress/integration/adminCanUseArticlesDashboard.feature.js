@@ -6,14 +6,8 @@ describe('Admin Can Use Articles Dashboard', () => {
   sizes.forEach((size) => {
     describe(`admin can navigate to articles dashboard on ${size}`, () => {
       beforeEach(() => {
-        cy.intercept('GET', '**/articles', {
-          fixture: 'all_articles.json',
-        })
         cy.intercept('GET', '**/articles/1', {
           fixture: 'single_article.json',
-        })
-        cy.intercept('GET', '**/app_data', {
-          fixture: 'app_data.json',
         })
         TestHelpers.sizeParameters(size)
         cy.visit('/')
@@ -29,6 +23,7 @@ describe('Admin Can Use Articles Dashboard', () => {
             .first()
             .within(() => {
               cy.get('[data-cy=status]').should('be.visible')
+              cy.get('[data-cy=case-study]').should('be.visible')
               cy.get('[data-cy=title]').should(
                 'contain.text',
                 'Most recent article'

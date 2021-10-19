@@ -17,7 +17,7 @@ const ArticleCreation = () => {
   const handleChange = (event) => {
     setArticle({
       ...article,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value || event.target.checked,
     })
   }
 

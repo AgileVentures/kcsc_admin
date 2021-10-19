@@ -2,7 +2,7 @@
 import sizes from '../support/index'
 import TestHelpers from '../support/testhelper'
 
-describe.only('Admin Can Login To Access Application Features', () => {
+describe('Admin Can Login To Access Application Features', () => {
   sizes.forEach((size) => {
     describe(`Application features can be accessed on ${size}`, () => {
       beforeEach(() => {

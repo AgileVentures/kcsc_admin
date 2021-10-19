@@ -44,7 +44,7 @@ const StyledTableRow = withStyles((theme) => ({
 const ArticlesDashboard = () => {
   const classes = articleDashboard()
   const commonClasses = useCommonStyles()
-  const articles = useSelector((state) => state.articles)
+  const { articles, caseStudies } = useSelector((state) => state)
 
   useEffect(() => {
     Articles.index()
@@ -58,6 +58,7 @@ const ArticlesDashboard = () => {
     <>
       <StyledTableRow color='secondary'>
         <StyledTableCell align='center'>Status</StyledTableCell>
+        <StyledTableCell align='center'>Case Study</StyledTableCell>
         <StyledTableCell align='left'>Title</StyledTableCell>
         <StyledTableCell align='left'>Author</StyledTableCell>
         <StyledTableCell align='left'>Date</StyledTableCell>
@@ -66,10 +67,22 @@ const ArticlesDashboard = () => {
     </>
   )
 
-  const tableRows =
-    articles &&
-    articles.map((article) => {
-      const { id, title, author, date, published } = article
+  const TableDivider = ({ children }) => (
+    <TableRow>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell align='center'>
+        <Typography variant='h5'>{children}</Typography>
+      </StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+    </TableRow>
+  )
+
+  const buildTableRowsFrom = (array) => {
+    return array.map((item) => {
+      const { id, title, author, date, published, case_study } = item
 
       return (
         <StyledTableRow data-cy='article' key={`article-${id}`}>
@@ -90,6 +103,9 @@ const ArticlesDashboard = () => {
               labelPlacement='bottom'
             />
           </StyledTableCell>
+          <StyledTableCell data-cy='case-study' className={classes.dateCell}>
+            {case_study ? 'Case Study' : 'News'}
+          </StyledTableCell>
           <StyledTableCell data-cy='title' className={classes.titleCell}>
             {title}
           </StyledTableCell>
@@ -98,15 +114,19 @@ const ArticlesDashboard = () => {
             {date}
           </StyledTableCell>
           <StyledTableCell data-cy='action' align='center'>
-            <ArticlePreviewModal article={article} />
+            <ArticlePreviewModal article={item} />
           </StyledTableCell>
         </StyledTableRow>
       )
     })
+  }
+
+  const articlesTableRows = articles && buildTableRowsFrom(articles)
+  const caseStudiesTableRows = caseStudies && buildTableRowsFrom(caseStudies)
 
   const noArticlesMessage = (
     <Typography variant='h6' style={{ padding: '12px' }}>
-      No articles to display
+      Nothing to display
     </Typography>
   )
 
@@ -124,6 +144,7 @@ const ArticlesDashboard = () => {
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
               <StyledTableCell></StyledTableCell>
+              <StyledTableCell></StyledTableCell>
               <StyledTableCell align='center'>
                 <Button
                   data-cy='create-btn'
@@ -135,7 +156,10 @@ const ArticlesDashboard = () => {
                 </Button>
               </StyledTableCell>
             </StyledTableRow>
-            {articles ? tableRows : noArticlesMessage}
+            <TableDivider>Case Studies</TableDivider>
+            {caseStudies ? caseStudiesTableRows : noArticlesMessage}
+            <TableDivider>News Articles</TableDivider>
+            {articles ? articlesTableRows : noArticlesMessage}
           </TableBody>
         </Table>
       </TableContainer>

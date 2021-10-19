@@ -51,6 +51,11 @@ const rootReducer = (state, action) => {
         ...state,
         articles: action.payload,
       }
+    case 'CASE_STUDIES_INDEX':
+      return {
+        ...state,
+        caseStudies: action.payload,
+      }
     case 'INFORMATION_INDEX':
       return {
         ...state,

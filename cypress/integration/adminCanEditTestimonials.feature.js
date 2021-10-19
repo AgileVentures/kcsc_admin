@@ -6,9 +6,6 @@ describe('Admin Can Edit Testimonials', () => {
   sizes.forEach((size) => {
     describe(`and edit Testimonials info on ${size}`, () => {
       beforeEach(() => {
-        cy.intercept('GET', '**/app_data', {
-          fixture: 'app_data.json',
-        })
         TestHelpers.sizeParameters(size)
         cy.visit('/')
         TestHelpers.authenticate()

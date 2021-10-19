@@ -7,9 +7,6 @@ describe('Admin Can Use Sections Dashboard', () => {
     describe('admin can navigate to sections dashboard', () => {
       const selection = 'sections'
       beforeEach(() => {
-        cy.intercept('GET', '**/app_data', {
-          fixture: 'app_data.json',
-        })
         cy.intercept('GET', '**/sections?view=services', {
           fixture: 'services_view_sections.json',
         })
