@@ -65,17 +65,16 @@ const Articles = {
     }
   },
 
-  async update_publish(id, publish) {
+  async update_attribute(id, attribute, state) {
     try {
       await axios.put(
         `/articles/${id}`,
-        { article: { id: id, published: publish } },
+        { article: { id: id, [attribute]: state } },
         { headers: headers }
       )
-      const action = publish ? 'published' : 'hidden'
       store.dispatch({
         type: 'SET_SUCCESS',
-        payload: `Article has been ${action}`,
+        payload: `Article has been updated`,
       })
       return 'success'
     } catch (error) {
