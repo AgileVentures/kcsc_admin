@@ -140,9 +140,18 @@ const ArticlesDashboard = () => {
   const caseStudiesTableRows = caseStudies && buildTableRowsFrom(caseStudies)
 
   const noArticlesMessage = (
-    <Typography variant='h6' style={{ padding: '12px' }}>
-      Nothing to display
-    </Typography>
+    <StyledTableRow>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell>
+        <Typography variant='h6' style={{ padding: '12px' }}>
+          Nothing to display
+        </Typography>
+      </StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+      <StyledTableCell></StyledTableCell>
+    </StyledTableRow>
   )
 
   return (
