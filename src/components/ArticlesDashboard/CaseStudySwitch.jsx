@@ -17,14 +17,14 @@ const StyledSwitch = withStyles({
   track: {},
 })(Switch)
 
-const PublishedSwitch = ({ publish, articleId, rerender }) => {
-  const [checked, setChecked] = useState(publish)
+const CaseStudySwitch = ({ case_study, articleId, rerender }) => {
+  const [checked, setChecked] = useState(case_study)
   
   const handleChange = async () => {
-    let publishState = !checked    
-    let result = await Articles.update_attribute(articleId, 'published', publishState)
+    let caseStudyState = !checked    
+    let result = await Articles.update_attribute(articleId, 'case_study', caseStudyState)
     if (result !== 'error') {
-      setChecked(publishState)
+      setChecked(caseStudyState)
     }
     rerender()
   }
@@ -35,11 +35,11 @@ const PublishedSwitch = ({ publish, articleId, rerender }) => {
         size='small'
         checked={checked}
         onChange={handleChange}
-        data-cy={`publish-${articleId}`}
-        name={`publish-${articleId}`}
+        data-cy={`case-study-switch-${articleId}`}
+        name={`case-study-switch-${articleId}`}
       />
     </>
   )
 }
 
-export default PublishedSwitch
+export default CaseStudySwitch

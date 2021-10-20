@@ -23,7 +23,7 @@ describe('Admin Can Use Articles Dashboard', () => {
             .first()
             .within(() => {
               cy.get('[data-cy=status]').should('be.visible')
-              cy.get('[data-cy=case-study]').should('be.visible')
+              cy.get('[data-cy=case-study-switch-1]').should('be.visible')
               cy.get('[data-cy=title]').should(
                 'contain.text',
                 'Most recent article'
