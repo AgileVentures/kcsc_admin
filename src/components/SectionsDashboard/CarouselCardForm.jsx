@@ -169,7 +169,7 @@ const CarouselCard = ({
             <Controller
               name={`card.alt`}
               control={control}
-              defaultValue={alt}
+              defaultValue={alt || ''}
               rules={{ required: 'This field cannot be empty' }}
               render={({
                 field: { onChange, value },
@@ -192,7 +192,7 @@ const CarouselCard = ({
             <Controller
               name={`card.organization`}
               control={control}
-              defaultValue={organization}
+              defaultValue={organization || ''}
               rules={{ required: 'This field cannot be empty' }}
               render={({
                 field: { onChange, value },
@@ -216,7 +216,7 @@ const CarouselCard = ({
             <Controller
               name={`card.description`}
               control={control}
-              defaultValue={description}
+              defaultValue={description || ''}
               rules={{ required: 'This field cannot be empty' }}
               render={({
                 field: { onChange, value },
@@ -243,7 +243,7 @@ const CarouselCard = ({
             <Controller
               name={`card.web`}
               control={control}
-              defaultValue={web}
+              defaultValue={web || ''}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='web-input'
@@ -260,7 +260,7 @@ const CarouselCard = ({
             <Controller
               name={`card.facebook`}
               control={control}
-              defaultValue={facebook}
+              defaultValue={facebook || ''}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='facebook-input'
@@ -277,7 +277,7 @@ const CarouselCard = ({
             <Controller
               name={`card.twitter`}
               control={control}
-              defaultValue={twitter}
+              defaultValue={twitter || ''}
               render={({ field: { onChange, value } }) => (
                 <TextField
                   data-cy='twitter-input'
