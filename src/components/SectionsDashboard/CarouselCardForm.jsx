@@ -30,12 +30,12 @@ const CarouselCard = ({
   const descriptionMaxLength = 150
   const {
     logo,
-    alt,
-    organization,
-    description,
-    web,
-    facebook,
-    twitter,
+    alt = '',
+    organization = '',
+    description = '',
+    web = '',
+    facebook = '',
+    twitter = '',
     published,
   } = card
   const [preview, setPreview] = useState()

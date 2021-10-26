@@ -60,12 +60,7 @@ const SectionsDashboard = () => {
         <StyledTab
           data-cy='navigation-tab'
           style={{ margin: 'auto' }}
-          label='About organization'
-        />
-        <StyledTab
-          data-cy='navigation-tab'
-          style={{ margin: 'auto' }}
-          label='About Self Care'
+          label='About Organisation'
         />
         <StyledTab
           data-cy='navigation-tab'

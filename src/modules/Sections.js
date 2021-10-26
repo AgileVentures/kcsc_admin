@@ -11,8 +11,7 @@ const Sections = {
       let getSection = {
         0: 'services',
         1: 'about_us',
-        2: 'about_self_care',
-        3: 'information',
+        2: 'information',
       }
       const response = await axios.get(
         `/sections?view=${getSection[tabValue]}`,
